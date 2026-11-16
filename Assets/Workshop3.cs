@@ -1,10 +1,13 @@
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 
 public class Workshop3 : MonoBehaviour
 {
+
+    public float timer = 5f;
     
     public EventInstance eventInst;
     public EventReference eventRef;
@@ -19,6 +22,27 @@ public class Workshop3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            //eventInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            //eventInst.setParameterByName("Parameter", 1);
+        }
+        
+        if (timer <= -3f && timer >= -9f)
+        {
+            eventInst.setParameterByName("Parameter 1", 2);
+            Debug.Log("-3");
+        }
+        
+        if (timer <= -10f)
+        {
+            eventInst.setParameterByName("Parameter 1", 1);
+            eventInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            Debug.Log("stop");
+        }
+        
+        
         
     }
 }
