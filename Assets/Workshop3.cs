@@ -17,6 +17,11 @@ public class Workshop3 : MonoBehaviour
     {
         eventInst = RuntimeManager.CreateInstance(eventRef);
         eventInst.start();
+        
+        eventInst.getPlaybackState(out PLAYBACK_STATE state);
+        Debug.Log(state);
+        
+        //PLAYBACK_STATE.STOPPED
     }
 
     // Update is called once per frame
