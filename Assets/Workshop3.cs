@@ -31,15 +31,13 @@ public class Workshop3 : MonoBehaviour
         
         if (timer <= -3f && timer >= -9f)
         {
-            eventInst.setParameterByName("Parameter 1", 2);
-            Debug.Log("-3");
+            eventInst.setParameterByName("Progression", 0);
         }
         
         if (timer <= -10f)
         {
-            eventInst.setParameterByName("Parameter 1", 1);
-            eventInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            Debug.Log("stop");
+            eventInst.setParameterByName("Progression", 2);
+            //eventInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
         
         
